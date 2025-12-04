@@ -60,17 +60,21 @@ pipeline {
 }
 
 
-post{
-       success{
-           echo "Pipeline   is successful"
-          mail to : 'kujurnikhil0007@gmail.com'
-          subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-         body: "Good news! The build succeeded.\nCheck the details at ${env.BUILD_URL}"
-       }
-         failure{
-               echo "pipeline  failed "
-              mail to : 'kujurnikhil0007@gmail.com'
-             subject : "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-             body : "Unfortunately, the build failed.\nCheck the details at ${env.BUILD_URL}"   
-         }
+post {
+    success {
+        echo "Pipeline is successful"
+        mail(
+            to: 'kujurnikhil0007@gmail.com',
+            subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+            body: "Good news! The build succeeded.\nCheck the details at ${env.BUILD_URL}"
+        )
+    }
+    failure {
+        echo "Pipeline failed"
+        mail(
+            to: 'kujurnikhil0007@gmail.com',
+            subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+            body: "Unfortunately, the build failed.\nCheck the details at ${env.BUILD_URL}"
+        )
+    }
 }
