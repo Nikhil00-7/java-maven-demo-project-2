@@ -30,6 +30,7 @@ pipeline {
                steps{
                 echo "Running  unit  Test"
                 sh "${MVN_CMD} test"
+                junit 'target/surefire-reports/*.xml'
             }
           }
 
