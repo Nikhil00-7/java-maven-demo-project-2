@@ -61,7 +61,6 @@ pipeline {
            }
 
     }
-}
 
 
 post {
@@ -81,4 +80,7 @@ post {
             body: "Unfortunately, the build failed.\nCheck the details at ${env.BUILD_URL}"
         )
     }
+
+
+   }
 }
