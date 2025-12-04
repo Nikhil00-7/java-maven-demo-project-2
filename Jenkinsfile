@@ -1,12 +1,16 @@
 pipeline {
       agent  any 
 
+
+   tools{
+          maven 'maven-demo'
+          jdk  'java17'
+   }
+
     environment{
          
-          JAVA_HOME = tool name: 'JDK17', type: 'jdk'
-         MVN_PATH  = "/usr/local/bin/env.path" 
-          JAVA_PATH = "${JAVA_HOME}/bin"
-          MVN_CMD   = "${MVN_PATH}/mvn"
+          MVN_CMD = "${tool 'maven-demo'}/bin/mvn"
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
     } 
 
     stages{
