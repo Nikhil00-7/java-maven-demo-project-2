@@ -4,7 +4,7 @@ pipeline {
     environment{
          
           JAVA_HOME = tool name: 'JDK17', type: 'jdk'
-         MVN_PATH  = /usr/local/bin/env.path 
+         MVN_PATH  = "/usr/local/bin/env.path" 
           JAVA_PATH = "${JAVA_HOME}/bin"
           MVN_CMD   = "${MVN_PATH}/mvn"
     } 
